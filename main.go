@@ -33,13 +33,13 @@ func main() {
 		case "C":
 			n, err := fmt.Scanf("%f", &input)
 			if n == 0 || err != nil {
-				log.Fatalln(errReadingInput)
+				printError(errReadingInput)
 			}
 			convertToFahrenheit(input)
 		case "F":
 			n, err := fmt.Scanf("%f", &input)
 			if n == 0 || err != nil {
-				log.Fatalln(errReadingInput)
+				printError(errReadingInput)
 			}
 			convertToCelsius(input)
 		default:
