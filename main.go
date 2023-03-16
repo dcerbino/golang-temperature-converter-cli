@@ -24,26 +24,26 @@ func main() {
 	}
 
 	originUnit = strings.ToUpper(os.Args[1])
-	var input float64
+	var inputs int
 
 	for {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
 
 		switch originUnit {
 		case "C":
-			n, err := fmt.Scanf("%f", &input)
-			if n == 0 || err != nil {
+			inputs, err = fmt.Scanf("%f", &originValue)
+			if inputs == 0 || err != nil {
 				printError(errReadingInput)
 			}
-			convertToFahrenheit(input)
+			convertToFahrenheit(originValue)
 		case "F":
-			n, err := fmt.Scanf("%f", &input)
-			if n == 0 || err != nil {
+			inputs, err = fmt.Scanf("%f", &originValue)
+			if inputs == 0 || err != nil {
 				printError(errReadingInput)
 			}
-			convertToCelsius(input)
+			convertToCelsius(originValue)
 		default:
-			log.Fatalln("invalid Unit: ", originUnit)
+			printError(errors.New("invalid Origin unit"))
 		}
 
 		fmt.Print("Would you like to convert another temperature ? (y/n) ")
